@@ -11,18 +11,27 @@ apt-get install -y ansible ansible-lint
 # Copiar ficheros de ansible y playbooks
 # Descomentar las siguientes líneas según vayamos teniendo los ficheros y
 # hacer `vagrant provision ansible`
-# cp -vf /vagrant/ansible.cfg .
-# cp -vf /vagrant/inventory.yml .
-# cp -vf /vagrant/requirements.yml .
+cp -vf /vagrant/ansible.cfg .
+cp -vf /vagrant/inventory.yml .
+cp -vf /vagrant/requirements.yml .
 # cp -vrf /vagrant/dns .
 # cp -vrf /vagrant/web .
 # cp -vrf /vagrant/ftp .
 # chown vagrant:vagrant ./ftp/vars/vault.yml
 
 # Instalar dependencias de Ansible
-# ansible-galaxy collection install -r requirements.yml
+ansible-galaxy collection install -r requirements.yml
 
 # Provisionar con Ansible
 # ansible-playbook dns/dns.yml
 # ansible-playbook web/web.yml
 # ansible-playbook ftp/ftp.yml
+
+# Copiar las claves privadas de Vagrant fuera de la carpeta compartida
+# (en /vagrant los permisos son 0777 y SSH las rechaza)
+install -d -m 700 -o vagrant -g vagrant /home/vagrant/.ssh/keys
+for m in dns negocio; do
+  install -m 600 -o vagrant -g vagrant \
+    /vagrant/.vagrant/machines/$m/virtualbox/private_key \
+    /home/vagrant/.ssh/keys/${m}_key
+done
