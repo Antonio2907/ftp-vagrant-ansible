@@ -6,7 +6,7 @@ set -xeu
 
 # Instalar ansible
 apt-get update
-apt-get install -y ansible ansible-lint dnsutils
+apt-get install -y ansible ansible-lint dnsutils curl whois
 
 # Copiar ficheros de ansible y playbooks
 # Descomentar las siguientes líneas según vayamos teniendo los ficheros y
@@ -15,9 +15,10 @@ cp -vf /vagrant/ansible.cfg .
 cp -vf /vagrant/inventory.yml .
 cp -vf /vagrant/requirements.yml .
 cp -vrf /vagrant/dns .
-# cp -vrf /vagrant/web .
+cp -vrf /vagrant/web .
 # cp -vrf /vagrant/ftp .
-# chown vagrant:vagrant ./ftp/vars/vault.yml
+chown vagrant:vagrant ./ansible.cfg ./inventory.yml ./requirements.yml
+chown -R vagrant:vagrant ./dns ./web
 
 # Instalar dependencias de Ansible
 ansible-galaxy collection install -r requirements.yml
