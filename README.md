@@ -1,5 +1,8 @@
 # FTP con Vagrant y Ansible
 
+**Autor:** Antonio Jiménez Balbuena
+**Repositorio:** https://github.com/Antonio2907/ftp-vagrant-ansible
+
 ## Objetivo
 
 Desplegar de forma automatizada un entorno con tres máquinas virtuales:
