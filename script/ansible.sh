@@ -14,11 +14,13 @@ apt-get install -y ansible ansible-lint dnsutils curl whois
 cp -vf /vagrant/ansible.cfg .
 cp -vf /vagrant/inventory.yml .
 cp -vf /vagrant/requirements.yml .
+cp -vf /vagrant/vault_pass.txt ./.vault_pass.txt
 cp -vrf /vagrant/dns .
 cp -vrf /vagrant/web .
-# cp -vrf /vagrant/ftp .
+cp -vrf /vagrant/ftp .
 chown vagrant:vagrant ./ansible.cfg ./inventory.yml ./requirements.yml
-chown -R vagrant:vagrant ./dns ./web
+chown -R vagrant:vagrant ./dns ./web ./ftp
+chmod 600 ./.vault_pass.txt
 
 # Instalar dependencias de Ansible
 ansible-galaxy collection install -r requirements.yml
