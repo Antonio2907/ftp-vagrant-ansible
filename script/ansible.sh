@@ -34,8 +34,8 @@ chown vagrant:vagrant ./inventory.yml
 cp -vf /vagrant/requirements.yml .
 chown vagrant:vagrant ./requirements.yml
 
-# cp -vrf /vagrant/dns .
-# chown -R vagrant:vagrant ./dns
+cp -vrf /vagrant/dns .
+chown -R vagrant:vagrant ./dns
 
 # cp -vrf /vagrant/web .
 # chown -R vagrant:vagrant ./web
