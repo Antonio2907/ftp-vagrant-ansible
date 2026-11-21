@@ -25,14 +25,14 @@ chmod 600 ./private_keys/*
 # Descomentar las siguientes líneas según vayamos teniendo los ficheros y
 # hacer `vagrant provision ansible`
 
-# cp -vf /vagrant/ansible.cfg .
-# chown vagrant:vagrant ./ansible.cfg
+cp -vf /vagrant/ansible.cfg .
+chown vagrant:vagrant ./ansible.cfg
 
-# cp -vf /vagrant/inventory.yml .
-# chown vagrant:vagrant ./inventory.yml
+cp -vf /vagrant/inventory.yml .
+chown vagrant:vagrant ./inventory.yml
 
-# cp -vf /vagrant/requirements.yml .
-# chown vagrant:vagrant ./inventory.yml
+cp -vf /vagrant/requirements.yml .
+chown vagrant:vagrant ./requirements.yml
 
 # cp -vrf /vagrant/dns .
 # chown -R vagrant:vagrant ./dns
