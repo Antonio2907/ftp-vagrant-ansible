@@ -1,0 +1,17 @@
+$TTL    604800
+@       IN      SOA     dns.antonio.test. admin.antonio.test. (
+                        1          ; Serial
+                        604800     ; Refresh
+                        86400      ; Retry
+                        2419200    ; Expire
+                        604800 )   ; Negative Cache TTL
+;
+@       IN      NS      dns.antonio.test.
+
+; Registros A
+dns     IN      A       192.168.57.5
+negocio IN      A       192.168.57.7
+
+; Alias
+www     IN      CNAME   negocio
+ftp     IN      CNAME   negocio

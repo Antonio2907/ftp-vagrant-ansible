@@ -1,0 +1,13 @@
+$TTL    604800
+@       IN      SOA     dns.antonio.test. admin.antonio.test. (
+                        1          ; Serial
+                        604800     ; Refresh
+                        86400      ; Retry
+                        2419200    ; Expire
+                        604800 )   ; Negative Cache TTL
+;
+@       IN      NS      dns.antonio.test.
+
+; Registros PTR (último octeto -> nombre completo)
+5       IN      PTR     dns.antonio.test.
+7       IN      PTR     negocio.antonio.test.
