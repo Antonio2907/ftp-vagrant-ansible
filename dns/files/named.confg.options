@@ -1,0 +1,16 @@
+options {
+        directory "/var/cache/bind";
+
+        // Recursión solo para el propio servidor y la red privada
+        recursion yes;
+        allow-recursion { 127.0.0.1; 192.168.57.0/24; };
+
+        // Escuchar en la IP del servidor DNS
+        listen-on { 127.0.0.1; 192.168.57.5; };
+        listen-on-v6 { none; };
+
+        // Reenviadores para resolver nombres de Internet
+        forwarders { 8.8.8.8; 1.1.1.1; };
+
+        dnssec-validation auto;
+};
