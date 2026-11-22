@@ -51,6 +51,6 @@ chmod 600 ./.vault_pass.txt
 ansible-galaxy collection install -r requirements.yml
 
 # Provisionar con Ansible
-# ansible-playbook dns/dns.yml
-# ansible-playbook web/web.yml
-# ansible-playbook ftp/ftp.yml --vault-password-file ./.vault_pass.txt
+ansible-playbook dns/dns.yml
+ansible-playbook web/web.yml
+ansible-playbook ftp/ftp.yml --vault-password-file ./.vault_pass.txt
